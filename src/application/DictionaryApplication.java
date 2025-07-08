@@ -8,6 +8,7 @@ import utils.MenuUtil;
 public class DictionaryApplication {
 
     private static final DictionaryService service = new DictionaryService();
+    private static String currentLanguage = "en"; // Default language
 
     public static void main(String[] args) throws Exception {
         dictionaryApplication();
@@ -31,9 +32,6 @@ public class DictionaryApplication {
                     switchLanguage();
                     break;
                 case 4:
-                    deleteDictionary();
-                    break;
-                case 5:
                     System.out.println("----------------- Tam Biet Cau Chu Nho ---------------------");
                     check = false;
                     break;
@@ -62,15 +60,10 @@ public class DictionaryApplication {
         service.addWord(dictionary);
     }
 
-    public static void deleteDictionary() {
-        System.out.print("Enter word to delete: ");
-        String keyWord = InputUtil.inputString();
-        service.deleteWord(keyWord); // still TODO in service
-    }
-
     public static void switchLanguage() {
         System.out.print("Enter language (en/ja): ");
         String lang = InputUtil.inputString();
         service.switchLanguage(lang);
+        currentLanguage = lang;
     }
 }

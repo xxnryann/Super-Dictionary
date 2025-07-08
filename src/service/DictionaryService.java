@@ -22,11 +22,6 @@ public class DictionaryService {
         }
     }
 
-    public void deleteWord(String keyWord) {
-        String lang = FileUtil.readCurrentLang();
-        FileUtil.deleteFromFile(keyWord, lang);
-    }
-
     public void switchLanguage(String lang) {
         String name = "";
         switch (lang) {
